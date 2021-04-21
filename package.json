@@ -14,15 +14,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JebGriffin85/messageBoard.git"
+    "url": "git+https://github.com/JebGriffin85/basic-message-app.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "git+https://github.com/JebGriffin85/messageBoard/issues"
+    "url": "git+https://github.com/JebGriffin85/basic-message-app/issues"
   },
-  "homepage": "git+https://github.com/JebGriffin85/messageBoard#readme",
+  "homepage": "git+https://github.com/JebGriffin85/basic-message-app#readme",
   "dependencies": {
     "react-scroll": "^1.8.2"
-  }
+  },
+  "devDependencies": {}
 }
