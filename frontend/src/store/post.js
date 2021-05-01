@@ -63,6 +63,11 @@ const postsReducer = (state = initialState, action) => {
             newState = Object.assign({}, state);
             newState.posts = action.payload;
             return newState;
+            // const allPosts = []
+            // action.posts.forEach((post) => {
+            //     allPosts.push({[post.id]: post})
+            // });
+            // return { posts: allPosts}
         case ADD_POST:
             newState = Object.assign({}, state);
             if (action.payload.errors) {
