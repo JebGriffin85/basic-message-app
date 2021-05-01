@@ -53,40 +53,46 @@ export const getPosts = () => async (dispatch) => {
   
 };
 
-const initialState = {posts: [], errors: []};
+// const initialState = {posts: {}, errors: []};
 
-const postsReducer = (state = initialState, action) => {
-    let newState;
+const postsReducer = (postState = {}, action) => {
+ 
 
     switch (action.type) {
         case GET_POSTS:
-            newState = Object.assign({}, state);
-            newState.posts = action.payload;
-            return newState;
+            const posts = action.payload
+            const allPosts = {}
+            for (const post of posts) {
+                allPosts[post.id] = post
+            }
+            return allPosts
+            // newState = Object.assign({}, state);
+            // newState.posts = action.payload;
+            // return newState;
             // const allPosts = []
             // action.posts.forEach((post) => {
             //     allPosts.push({[post.id]: post})
             // });
             // return { posts: allPosts}
-        case ADD_POST:
-            newState = Object.assign({}, state);
-            if (action.payload.errors) {
-                newState.errors = action.payload.errors;
-            } else {
-                newState.posts.push(action.payload);
-            } 
-            return newState;
-        case DELETE_POST:
-            newState = Object.assign({}, state);
+        // case ADD_POST:
+        //     newState = Object.assign({}, state);
+        //     if (action.payload.errors) {
+        //         newState.errors = action.payload.errors;
+        //     } else {
+        //         newState.posts.push(action.payload);
+        //     } 
+        //     return newState;
+        // case DELETE_POST:
+        //     newState = Object.assign({}, state);
 
-            newState.posts.forEach((post, index) => {
-                if (post.id === action.payload){
-                    delete newState.posts[index]
-                }
-            })
-            return newState;
+        //     newState.posts.forEach((post, index) => {
+        //         if (post.id === action.payload){
+        //             delete newState.posts[index]
+        //         }
+        //     })
+        //     return newState;
         default:
-            return state;
+            return postState;
     }
 }
 
